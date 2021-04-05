@@ -1,0 +1,260 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: black;
+}
+
+
+#navbar {
+  width: 100%;
+  background: rgb(203, 122, 52);
+  background: linear-gradient(90deg, #ff7000 0%, rgb(203, 122, 52) 7%, rgba(164,161,157,1) 28%, rgba(164,161,157,1) 72%, rgba(158,114,70,1) 93%, #ff7000 100%);
+  display: grid;
+  grid-auto-columns: 1.5fr 3fr 2fr;
+  grid-template-areas: "logo navlist searchbar";
+  min-height: fit-content;
+  position: fixed;
+  z-index: 999;
+  box-shadow: 0 0 11px 6px rgba(0, 0, 0, 0.45), 0 -7px 4px 4px rgba(0, 0, 0, 0.45);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.logo {
+  grid-area: logo;
+}
+.logo img {
+  margin: 10px;
+  max-width: 70px;
+  max-height: 70px;
+}
+
+.navlist {
+  grid-area: navlist;
+}
+.navlist li {
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+
+.navlist-links {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-auto-columns: 4fr 4fr 2fr;
+  grid-template-areas: "tours places aboutus";
+  text-align: center;
+}
+.navlist-links li {
+  list-style: none;
+  font-family: "Georgia";
+  letter-spacing: 1px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.navlist-links li > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+.navlist-links li > a:hover {
+  background: #b5b4b4;
+  border-radius: 2px;
+}
+.navlist-links li > a .arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  right: 20px;
+  border-width: 5px 5px 0 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.3) transparent;
+}
+.navlist-links li > a .arrow:after {
+  content: "";
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  top: -10px;
+  left: -15px;
+  position: absolute;
+  height: 15px;
+}
+.navlist-links li ul {
+  display: none;
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 100%;
+  margin: 0;
+  background: #b5b4b4;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+.navlist-links li ul li {
+  clear: both;
+  list-style: none;
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+.navlist-links li ul li:hover {
+  background: #dedede;
+}
+.navlist-links li ul li:hover > a {
+  background: #dedede;
+}
+.navlist-links li:hover > .drop {
+  display: block;
+  animation: fadeInUp 0.4s ease;
+  -webkit-animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -25%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.searchbar {
+  grid-area: searchbar;
+  position: relative;
+}
+
+.search-bttn {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.search-bttn .search {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background: #474646;
+  border-radius: 50%;
+  transition: all 1s;
+  z-index: 4;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+.search-bttn .search:hover {
+  cursor: pointer;
+}
+.search-bttn .search::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 22px;
+  right: 0;
+  bottom: 0;
+  left: 22px;
+  width: 12px;
+  height: 2px;
+  background: #ff7000;
+  transform: rotate(45deg);
+  transition: all 0.5s;
+}
+.search-bttn .search::after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: -5px;
+  right: 0;
+  bottom: 0;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #ff7000;
+  transition: all 0.5s;
+}
+.search-bttn input {
+  font-family: "Inconsolata", monospace;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
+  background: #585858;
+  color: #ff7000;
+  text-shadow: 0 0 10px #000000;
+  padding: 0 80px 0 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 25px 0 #000000, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+  transition: all 1s;
+  opacity: 0;
+  z-index: 5;
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+}
+.search-bttn input:hover {
+  cursor: pointer;
+}
+.search-bttn input:focus {
+  width: 300px;
+  opacity: 1;
+  cursor: text;
+}
+.search-bttn input:focus ~ .search {
+  right: -250px;
+  background: #585858;
+  z-index: 6;
+}
+.search-bttn input:focus ~ .search::before {
+  top: 0;
+  left: 0;
+  width: 25px;
+}
+.search-bttn input:focus ~ .search::after {
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  border: none;
+  background: #ff7000;
+  border-radius: 0%;
+  transform: rotate(-45deg);
+}
+.search-bttn input::placeholder {
+  color: white;
+  opacity: 0.5;
+  font-weight: bolder;
+}
+
+.header-img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.content {
+  position: relative;
+  box-shadow: 0 0 15px 7px rgba(0, 0, 0, 0.4), 0 -5px 40px 0 rgba(0, 0, 0, 0.4);
+}
+
+/*# sourceMappingURL=style.css.map */

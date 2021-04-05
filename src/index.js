@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Person from './Person'
+import Worker from "./Worker/Worker";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -12,11 +12,11 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-ReactDOM.render(<Person name={"Max"} age={"28"} />,
-    document.querySelector('#p1'))
-
-ReactDOM.render(<Person name={"Ivan"} age={"18"} />,
-    document.querySelector('#p2'))
+// ReactDOM.render(<Person name={"Max"} age={"28"} />,
+//     document.querySelector('#p1'))
+//
+// ReactDOM.render(<Person name={"Ivan"} age={"18"} />,
+//     document.querySelector('#p2'))
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -1,7 +1,7 @@
 import React, {useState} from "react"
-import '../App.css'
+import '../../../containers/App.css'
 
-const Worker = () => {
+const WorkerForm = () => {
     const [data, setData] = useState({
         name: "",
         password: "",
@@ -23,11 +23,13 @@ const Worker = () => {
 
 
 
-    return <div>
+    return(
+    <div>
         <input value={data.name} placeholder={'name'} onChange={onChangeName}/>
         <input value={data.password} placeholder={'password'} onChange={onChangePassword}/>
         <button onClick={()=>{alert('qq')}}>send</button>
     </div>
+    )
 };
 
-export default Worker;
+export default WorkerForm;

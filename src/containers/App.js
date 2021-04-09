@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import './App.css'
-import Worker from "./Worker/Worker"
-import WorkerForm from "./Worker/WorkerForm"
+import Workers from "../components/Workers/Workers";
+import Worker from "../components/Workers/Worker/Worker"
+import WorkerForm from "../components/Workers/Worker/WorkerForm"
 
 
 class App extends Component {
@@ -41,15 +42,11 @@ class App extends Component {
     render() {
         return (
             <div>
-                {this.state.workers.map((worker, index) => {
-                    return <Worker
-                        key={worker.id}
-                        name={worker.name}
-                        lastName={worker.lastName}
-                        click={() => this.deleteWorkerHandler(index)}
-                        change={(event) => this.changeNameHandler(event, worker.id)}
-                    />
-                })}
+                <Workers
+                    workers={this.state.workers}
+                    clicked={this.deleteWorkerHandler}
+                    changed={this.changeNameHandler}
+                />
             </div>
         );
     }

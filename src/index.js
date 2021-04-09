@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Worker from "./Worker/Worker";
+import App from './containers/App';
+import Worker from "./components/Workers/Worker/Worker";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

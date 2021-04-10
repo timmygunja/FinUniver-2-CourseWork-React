@@ -1,52 +1,44 @@
 import React, { Component } from "react"
 import './App.css'
-import Workers from "../components/Workers/Workers";
-import Worker from "../components/Workers/Worker/Worker"
-import WorkerForm from "../components/Workers/Worker/WorkerForm"
+import Employee from "../components/Workers/Worker/Employee"
 
 
 class App extends Component {
-    state = {
-        workers: [
-            {id: 1, name: 'Max', lastName: 'Payne'},
-            {id: 2, name: 'Ivan', lastName: 'Ivanov'},
-            {id: 3, name: 'Petr', lastName: 'Petrov'},
-        ]
-    }
 
     // usernameChangedHandler = (e) => {
     //     this.setState({username: e.target.value})
     // }
 
     changeNameHandler = (event, id) => {
-        const workerIndex = this.state.workers.findIndex(w => {return w.id === id})
+        const employeeIndex = this.state.workers.findIndex(w => {return w.id === id})
 
-        const worker = {
-            ...this.state.workers[workerIndex]
+        const employee = {
+            ...this.state.employees[employeeIndex]
         }
 
-        worker.name = event.target.value
+        employee.name = event.target.value
 
-        const workers = [...this.state.workers]
-        workers[workerIndex] = worker
+        const employees = [...this.state.employees]
+        employees[employeeIndex] = employee
 
-        this.setState({workers: workers})
+        this.setState({employees: employees})
     }
 
-    deleteWorkerHandler = (workerIndex) => {
-        const workers = [...this.state.workers]
-        workers.splice(workerIndex,1)
-        this.setState({workers: workers})
+    deleteWorkerHandler = (employeeIndex) => {
+        const employees = [...this.state.employees]
+        employees.splice(employeeIndex,1)
+        this.setState({employees: employees})
     }
 
     render() {
         return (
             <div>
-                <Workers
-                    workers={this.state.workers}
-                    clicked={this.deleteWorkerHandler}
-                    changed={this.changeNameHandler}
-                />
+                {/*<Employees*/}
+                {/*    workers={this.state.workers}*/}
+                {/*    clicked={this.deleteWorkerHandler}*/}
+                {/*    changed={this.changeNameHandler}*/}
+                {/*/>*/}
+                <Employee />
             </div>
         );
     }

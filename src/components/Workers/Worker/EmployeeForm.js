@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import '../../../containers/App.css'
 
-const WorkerForm = () => {
+const EmployeeForm = () => {
     const [data, setData] = useState({
         name: "",
         password: "",
@@ -32,4 +32,4 @@ const WorkerForm = () => {
     )
 };
 
-export default WorkerForm;
+export default EmployeeForm;

@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import '../../../containers/App.css'
+import '../../../App.css'
 
 const EmployeeForm = () => {
     const [data, setData] = useState({

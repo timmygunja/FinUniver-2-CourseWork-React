@@ -1,6 +1,10 @@
 import React, { Component } from "react"
 import './App.css'
-import Employee from "../components/Workers/Worker/Employee"
+import Employees from "./containers/Employees/Employees";
+import {BrowserRouter, Link} from "react-router-dom";
+import {Route} from "react-router";
+
+// import Employee from "../components/Employees/Employee/Employee"
 
 
 class App extends Component {
@@ -32,14 +36,29 @@ class App extends Component {
 
     render() {
         return (
+            <BrowserRouter>
             <div>
-                {/*<Employees*/}
-                {/*    workers={this.state.workers}*/}
-                {/*    clicked={this.deleteWorkerHandler}*/}
-                {/*    changed={this.changeNameHandler}*/}
-                {/*/>*/}
-                <Employee />
+                <header className="header">
+                    <nav>
+                        <ul>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/employees">Employees</Link></li>
+                        </ul>
+                    </nav>
+                </header>
+                <hr />
+
+
+                <Route exact path="/">
+                    <h2>Home</h2>
+                </Route>
+
+
+                <Route exact path="/employees">
+                    <Employees />
+                </Route>
             </div>
+            </BrowserRouter>
         );
     }
 }

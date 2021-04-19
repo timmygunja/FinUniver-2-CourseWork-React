@@ -31,16 +31,22 @@ class Employees extends Component {
 
     editingHandler = (id) => {
         this.setState({
-            editing: true,
-            employeeId: id
+            employeeId: id,
+            editing: true
         })
     }
 
     editingCancelHandler = () => {
-        this.setState({editing:false})
+        this.setState({editing: false})
     }
 
     componentDidMount() {
+        EmployeeService.getEmployees().then((response) => {
+            this.setState({employees: response.data})
+        })
+    }
+
+    componentDidUpdate() {
         EmployeeService.getEmployees().then((response) => {
             this.setState({employees: response.data})
         })
@@ -57,7 +63,8 @@ class Employees extends Component {
                 <Modal show={this.state.editing} modalClosed={this.editingCancelHandler}>
                     {
                         this.state.editing ?
-                        <EmployeeEditForm employee={this.state.employees[this.state.employeeId - 1]} />
+                            <EmployeeEditForm employee={this.state.employees.filter(
+                                emp => {return emp.id === this.state.employeeId})[0]} />
                         : <Spinner />
                     }
                 </Modal>

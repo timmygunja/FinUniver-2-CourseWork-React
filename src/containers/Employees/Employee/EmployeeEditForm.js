@@ -108,14 +108,15 @@ class EmployeeEditForm extends Component {
         axios.delete( 'http://localhost:8080/api/employees' + '/' + formData['id'])
             .then( response => {
                 this.setState( { loading: false } );
-                this.props.history.push( '/' );
+                // this.props.history.push( '/' );
             } )
             .catch( error => {
                 this.setState( { loading: false } );
             } );
 
         // eslint-disable-next-line no-restricted-globals
-        location.reload()
+        // location.reload()
+        // console.log(this.props.employee)
     }
 
     inputChangedHandler = (event, inputIdentifier) => {

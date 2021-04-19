@@ -83,14 +83,14 @@ class EmployeeAddForm extends Component {
         axios.post( 'http://localhost:8080/api/employees', formData)
             .then( response => {
                 this.setState( { loading: false } );
-                this.props.history.push( '/' );
+                this.props.history.push( '/employees' ); // doesn't work ?
             } )
             .catch( error => {
                 this.setState( { loading: false } );
             } );
 
         // eslint-disable-next-line no-restricted-globals
-        location.reload()
+        // location.reload()
     }
 
     inputChangedHandler = (event, inputIdentifier) => {

@@ -54,8 +54,7 @@ class App extends Component {
                 </Route>
 
 
-                <Route exact path="/employees">
-                    <Employees />
+                <Route exact path="/employees" component={Employees}>
                 </Route>
             </div>
             </BrowserRouter>

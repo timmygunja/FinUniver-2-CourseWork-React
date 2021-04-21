@@ -1,11 +1,11 @@
 import React, {Component} from "react"
-import EmployeeService from "../../components/services/EmployeeService";
-import Modal from "../../components/UI/Modal/Modal";
-import Aux from "../../hoc/Aux/Aux";
+import EmployeeService from "../components/services/EmployeeService";
+import Modal from "../components/UI/Modal/Modal";
+import Aux from "../hoc/Aux/Aux";
 import "./Employees.css"
-import EmployeeAddForm from "./Employee/EmployeeAddForm";
-import EmployeeEditForm from "./Employee/EmployeeEditForm";
-import Spinner from "../../components/UI/Spinner/Spinner";
+import EmployeeAddForm from "../containers/Employees/Employee/EmployeeAddForm";
+import EmployeeEditForm from "../containers/Employees/Employee/EmployeeEditForm";
+import Spinner from "../components/UI/Spinner/Spinner";
 
 class Employees extends Component {
     constructor(props) {

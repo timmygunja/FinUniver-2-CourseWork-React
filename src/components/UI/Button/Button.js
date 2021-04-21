@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Button.css';
-import '../../../containers/Employees/Employees.css'
+import '../../../pages/Employees.css'
 
 const Button = (props) => (
     <button

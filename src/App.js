@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import './App.css'
 import Employees from "./containers/Employees/Employees";
-import {BrowserRouter, Link} from "react-router-dom";
+import {Link, Switch} from "react-router-dom";
 import {Route} from "react-router";
+import MainNavigation from "./components/layout/MainNavigation";
 
 // import Employee from "../components/Employees/Employee/Employee"
 
@@ -36,28 +37,31 @@ class App extends Component {
 
     render() {
         return (
-            <BrowserRouter>
             <div>
-                <header className="header">
-                    <nav>
-                        <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/employees">Employees</Link></li>
-                        </ul>
-                    </nav>
-                </header>
-                <hr />
+                <MainNavigation />
+                <Switch>
+                    <Route exact path="/">
+                        <h2>Home</h2>
+                    </Route>
 
 
-                <Route exact path="/">
-                    <h2>Home</h2>
-                </Route>
+                    <Route exact path="/employees">
+                        <Employees />
+                    </Route>
+                </Switch>
 
-
-                <Route exact path="/employees" component={Employees}>
-                </Route>
+                {/*<div>*/}
+                    {/*<header className="header">*/}
+                    {/*    <nav>*/}
+                    {/*        <ul>*/}
+                    {/*            <li><Link to="/">Home</Link></li>*/}
+                    {/*            <li><Link to="/employees">Employees</Link></li>*/}
+                    {/*        </ul>*/}
+                    {/*    </nav>*/}
+                    {/*</header>*/}
+                    {/*<hr />*/}
+                {/*</div>*/}
             </div>
-            </BrowserRouter>
         );
     }
 }

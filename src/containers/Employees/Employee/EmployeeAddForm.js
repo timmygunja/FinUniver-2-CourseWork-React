@@ -5,6 +5,8 @@ import Input from "../../../components/UI/Input/Input";
 import Button from "../../../components/UI/Button/Button";
 import axios from "axios";
 import Spinner from "../../../components/UI/Spinner/Spinner";
+import PositionService from "../../../components/services/PositionService";
+import PrivilegeService from "../../../components/services/PrivilegeService";
 
 
 class EmployeeAddForm extends Component {
@@ -51,25 +53,63 @@ class EmployeeAddForm extends Component {
                 },
                 value: ''
             },
-            // position: {
-            //     elementType: 'input',
-            //     elementConfig: {
-            //         type: 'text',
-            //         placeholder: 'Position'
-            //     },
-            //     value: ''
-            // },
-            // privilege: {
-            //     elementType: 'select',
-            //     elementConfig: {
-            //         options: [
-            //             {value: 'admin', displayValue: 'Admin'},
-            //             {value: 'user', displayValue: 'User'}
-            //         ]
-            //     },
-            //     value: ''
-            // }
+            position: {
+                elementType: 'select',
+                elementConfig: {
+                    options: []
+                },
+                value: ''
+            },
+            privilege: {
+                elementType: 'select',
+                elementConfig: {
+                    options: []
+                },
+                value: '',
+            }
         }
+    }
+
+    componentDidMount() {
+        PositionService.getPositions().then((response) => {
+            this.setState((prevState, props) => ({
+                addForm: {
+                    ...prevState.addForm,
+                    position: {
+                        elementType: 'select',
+                        elementConfig: {
+                            options: response.data.map(
+                                position => {
+                                    position['value']=position.id;
+                                    position['displayValue']=position.name;
+                                    return position},
+                                )
+                        },
+                        value: ''
+                    }
+                }
+            }));
+        })
+
+        PrivilegeService.getPrivileges().then((response) => {
+            this.setState((prevState, props) => ({
+                addForm: {
+                    ...prevState.addForm,
+                    privilege: {
+                        elementType: 'select',
+                        elementConfig: {
+                            options: response.data.map(
+                                privilege => {
+                                    privilege['value']=privilege.id;
+                                    privilege['displayValue']=privilege.name;
+                                    return privilege},
+                            )
+                        },
+                        value: ''
+                    }
+                }
+            }));
+        })
     }
 
     formHandler = ( event ) => {
@@ -79,6 +119,8 @@ class EmployeeAddForm extends Component {
         for (let formElementIdentifier in this.state.addForm) {
             formData[formElementIdentifier] = this.state.addForm[formElementIdentifier].value;
         }
+
+        console.log(formData)
 
         axios.post( 'http://localhost:8080/api/employees', formData)
             .then( response => {

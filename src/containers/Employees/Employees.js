@@ -46,12 +46,6 @@ class Employees extends Component {
         })
     }
 
-    componentDidUpdate() {
-        EmployeeService.getEmployees().then((response) => {
-            this.setState({employees: response.data})
-        })
-    }
-
 
     render() {
         return (
@@ -100,8 +94,8 @@ class Employees extends Component {
                                     <td>{employee.surname}</td>
                                     <td>{employee.contact}</td>
                                     <td>{employee.login}</td>
-                                    <td>{employee.position}</td>
-                                    <td>{employee.privilege}</td>
+                                    <td>{employee.position.name}</td>
+                                    <td>{employee.privilege.name}</td>
                                 </tr>
                         )
                     }

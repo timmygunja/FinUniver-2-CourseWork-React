@@ -5,6 +5,8 @@ import Input from "../../../components/UI/Input/Input";
 import Button from "../../../components/UI/Button/Button";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import axios from "axios";
+import PositionService from "../../../components/services/PositionService";
+import PrivilegeService from "../../../components/services/PrivilegeService";
 
 
 class EmployeeEditForm extends Component {
@@ -45,36 +47,65 @@ class EmployeeEditForm extends Component {
                     },
                     value: this.props.employee.login
                 },
-                // password: {
-                //     elementType: 'input',
-                //     elementConfig: {
-                //         type: 'text',
-                //         placeholder: 'Password'
-                //     },
-                //     value: this.props.employee.password
-                // },
-                // position: {
-                //     elementType: 'input',
-                //     elementConfig: {
-                //         type: 'text',
-                //         placeholder: 'Position'
-                //     },
-                //     value: this.props.employee.position
-                // },
-                // privilege: {
-                //     elementType: 'select',
-                //     elementConfig: {
-                //         options: [
-                //             {value: 'admin', displayValue: 'Admin'},
-                //             {value: 'user', displayValue: 'User'}
-                //         ]
-                //     },
-                //     value: this.props.employee.privilege
-                // }
+                position: {
+                    elementType: 'select',
+                    elementConfig: {
+                        options: []
+                    },
+                    value: ''
+                },
+                privilege: {
+                    elementType: 'select',
+                    elementConfig: {
+                        options: []
+                    },
+                    value: ''
+                }
             }
         }
     }
 
+    componentDidMount() {
+        PositionService.getPositions().then((response) => {
+            this.setState((prevState, props) => ({
+                addForm: {
+                    ...prevState.addForm,
+                    position: {
+                        elementType: 'select',
+                        elementConfig: {
+                            options: response.data.map(
+                                position => {
+                                    position['value']=position.name;
+                                    position['displayValue']=position.name;
+                                    return position},
+                            )
+                        },
+                        value: ''
+                    }
+                }
+            }));
+        })
+
+        PrivilegeService.getPrivileges().then((response) => {
+            this.setState((prevState, props) => ({
+                addForm: {
+                    ...prevState.addForm,
+                    privilege: {
+                        elementType: 'select',
+                        elementConfig: {
+                            options: response.data.map(
+                                privilege => {
+                                    privilege['value']=privilege.name;
+                                    privilege['displayValue']=privilege.name;
+                                    return privilege},
+                            )
+                        },
+                        value: ''
+                    }
+                }
+            }));
+        })
+    }
 
     updateHandler = ( event ) => {
         event.preventDefault();
@@ -115,8 +146,7 @@ class EmployeeEditForm extends Component {
             } );
 
         // eslint-disable-next-line no-restricted-globals
-        // location.reload()
-        // console.log(this.props.employee)
+        location.reload()
     }
 
     inputChangedHandler = (event, inputIdentifier) => {

@@ -39,7 +39,8 @@ const Input = (props) => {
                 className="InputElement"
                 {...props.elementConfig}
                 value={props.value}
-                onChange={props.changed} />;
+                onChange={props.changed}
+                required={true} />;
     }
 
     return(

@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import '../../../App.css'
-import "./EmployeeAddForm.css"
+import "./EmployeeForm.css"
 import Input from "../../../components/UI/Input/Input";
 import Button from "../../../components/UI/Button/Button";
 import axios from "axios";

@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import '../../../App.css'
-import './PositionEditForm.css'
+import './PositionForm.css'
 import Input from "../../../components/UI/Input/Input";
 import Button from "../../../components/UI/Button/Button";
 import Spinner from "../../../components/UI/Spinner/Spinner";
@@ -76,7 +76,7 @@ class PositionEditForm extends Component {
         event.preventDefault();
         this.setState( { loading: true } );
         const formData = {};
-        formData['id'] = this.props.employee.id
+        formData['id'] = this.props.position.id
 
         // eslint-disable-next-line no-useless-concat
         axios.delete( 'http://localhost:8080/api/positions' + '/' + formData['id'])
@@ -89,7 +89,7 @@ class PositionEditForm extends Component {
             } );
 
         // eslint-disable-next-line no-restricted-globals
-        // location.reload()
+        location.reload()
     }
 
     inputChangedHandler = (event, inputIdentifier) => {

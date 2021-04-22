@@ -11,17 +11,8 @@
     cursor: pointer;
 }
 
-/*.form-top {*/
-/*    width: 100%;*/
-/*    display: grid;*/
-/*    grid-template-columns: 2fr 2fr 1fr 1fr 2fr 2fr;*/
-/*    grid-template-areas:*/
-/*            ". . title title . ."*/
-/*            " . . addBtn dltBtn . .";*/
-/*}*/
-
 .form-title {
-    /*grid-area: title;*/
+    margin: 10px;
     text-align: center;
 }
 
@@ -40,7 +31,6 @@
 }
 
 .AddButton {
-    /*grid-area: addBtn;*/
     text-align: center;
     background-color: ghostwhite;
     outline: none;
@@ -86,7 +76,6 @@
 }
 
 .DeleteButton {
-    /*grid-area: dltBtn;*/
     width: 85px;
     background-color: ghostwhite;
     outline: none;

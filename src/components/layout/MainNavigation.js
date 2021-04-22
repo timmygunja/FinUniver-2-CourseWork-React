@@ -5,7 +5,7 @@ import classes from './MainNavigation.module.css'
 function MainNavigation() {
     return <header className={classes.header}>
         <div className={classes.logo}>AutoService</div>
-        <nav>
+        <nav className={classes.nav}>
             <ul className={classes.mainList}>
                 <li>
                     <Link to='/'>Home</Link>

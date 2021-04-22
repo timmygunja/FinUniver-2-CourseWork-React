@@ -1,13 +1,14 @@
 import React, { Component } from "react"
 import './App.css'
-import Employees from "./pages/Employees";
+import Employees from "./pages/Employees/Employees";
 import {Link, Switch} from "react-router-dom";
 import {Route} from "react-router";
 import MainNavigation from "./components/layout/MainNavigation";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Positions from "./pages/Positions/Positions";
 
-// import Employee from "../components/Employees/Employee/Employee"
+// import forms from "../components/Positions/forms/forms"
 
 
 class App extends Component {
@@ -48,6 +49,12 @@ class App extends Component {
                     <Route exact path="/employees">
                         <Employees />
                     </Route>
+                    <Route exact path="/positions">
+                        <Positions />
+                    </Route>
+                    <Route exact path="/privileges">
+                        <h2>Privileges</h2>
+                    </Route>
                     <Route exact path="/about">
                         <About />
                     </Route>
@@ -58,7 +65,7 @@ class App extends Component {
                     {/*    <nav>*/}
                     {/*        <ul>*/}
                     {/*            <li><Link to="/">Home</Link></li>*/}
-                    {/*            <li><Link to="/employees">Employees</Link></li>*/}
+                    {/*            <li><Link to="/employees">Positions</Link></li>*/}
                     {/*        </ul>*/}
                     {/*    </nav>*/}
                     {/*</header>*/}

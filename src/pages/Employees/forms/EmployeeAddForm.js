@@ -80,12 +80,11 @@ class EmployeeAddForm extends Component {
                         elementConfig: {
                             options: response.data.map(
                                 position => {
-                                    position['value']=position.id;
+                                    position['value']=position;
                                     position['displayValue']=position.name;
                                     return position},
                                 )
                         },
-                        value: ''
                     }
                 }
             }));
@@ -100,12 +99,11 @@ class EmployeeAddForm extends Component {
                         elementConfig: {
                             options: response.data.map(
                                 privilege => {
-                                    privilege['value']=privilege.id;
+                                    privilege['value']=privilege;
                                     privilege['displayValue']=privilege.name;
                                     return privilege},
                             )
                         },
-                        value: ''
                     }
                 }
             }));

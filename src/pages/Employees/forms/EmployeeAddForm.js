@@ -58,14 +58,12 @@ class EmployeeAddForm extends Component {
                 elementConfig: {
                     options: []
                 },
-                value: ''
             },
             privilege: {
                 elementType: 'select',
                 elementConfig: {
                     options: []
                 },
-                value: '',
             }
         }
     }
@@ -79,12 +77,13 @@ class EmployeeAddForm extends Component {
                         elementType: 'select',
                         elementConfig: {
                             options: response.data.map(
-                                position => {
-                                    position['value']=position;
-                                    position['displayValue']=position.name;
-                                    return position},
+                                    position => {
+                                        position['value']=position.id;
+                                        position['displayValue']=position.name;
+                                        return position},
                                 )
                         },
+                        value: '1'
                     }
                 }
             }));
@@ -99,11 +98,12 @@ class EmployeeAddForm extends Component {
                         elementConfig: {
                             options: response.data.map(
                                 privilege => {
-                                    privilege['value']=privilege;
+                                    privilege['value']=privilege.id;
                                     privilege['displayValue']=privilege.name;
                                     return privilege},
                             )
                         },
+                        value: '1'
                     }
                 }
             }));
@@ -118,7 +118,8 @@ class EmployeeAddForm extends Component {
             formData[formElementIdentifier] = this.state.addForm[formElementIdentifier].value;
         }
 
-        console.log(formData)
+        formData["position"] = {id: this.state.addForm.position.value}
+        formData["privilege"] = {id: this.state.addForm.privilege.value}
 
         axios.post( 'http://localhost:8080/api/employees', formData)
             .then( response => {
@@ -130,7 +131,7 @@ class EmployeeAddForm extends Component {
             } );
 
         // eslint-disable-next-line no-restricted-globals
-        // location.reload()
+        location.reload()
     }
 
     inputChangedHandler = (event, inputIdentifier) => {
@@ -154,7 +155,7 @@ class EmployeeAddForm extends Component {
             });
         }
         let form = (
-            <form onSubmit={this.formHandler}>
+            <form onSubmit={this.formHandler} >
                 {formElementsArray.map(formElement => (
                     <Input
                         key={formElement.id}

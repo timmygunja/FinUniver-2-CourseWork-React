@@ -47,20 +47,6 @@ class EmployeeEditForm extends Component {
                     },
                     value: this.props.employee.login
                 },
-                position: {
-                    elementType: 'select',
-                    elementConfig: {
-                        options: []
-                    },
-                    value: ''
-                },
-                privilege: {
-                    elementType: 'select',
-                    elementConfig: {
-                        options: []
-                    },
-                    value: ''
-                }
             }
         }
     }
@@ -75,12 +61,13 @@ class EmployeeEditForm extends Component {
                         elementConfig: {
                             options: response.data.map(
                                 position => {
-                                    position['value']=position.name;
+                                    position['value']=position.id;
                                     position['displayValue']=position.name;
                                     return position},
                             )
                         },
-                        value: ''
+                        value: this.props.employee.position.id,
+                        displayValue: this.props.employee.position.name
                     }
                 }
             }));
@@ -95,12 +82,13 @@ class EmployeeEditForm extends Component {
                         elementConfig: {
                             options: response.data.map(
                                 privilege => {
-                                    privilege['value']=privilege.name;
+                                    privilege['value']=privilege.id;
                                     privilege['displayValue']=privilege.name;
                                     return privilege},
                             )
                         },
-                        value: ''
+                        value: this.props.employee.privilege.id,
+                        displayValue: this.props.employee.privilege.name
                     }
                 }
             }));
@@ -115,6 +103,9 @@ class EmployeeEditForm extends Component {
         for (let formElementIdentifier in this.state.addForm) {
             formData[formElementIdentifier] = this.state.addForm[formElementIdentifier].value;
         }
+
+        formData["position"] = {id: this.state.addForm.position.value}
+        formData["privilege"] = {id: this.state.addForm.privilege.value}
 
         axios.put( 'http://localhost:8080/api/employees', formData)
             .then( response => {

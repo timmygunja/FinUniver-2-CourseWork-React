@@ -1,3 +1,10 @@
+.FormData {
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 .table-title-row {
     font-size: 18px;
     font-weight: 800;
@@ -5,8 +12,8 @@
     text-transform: uppercase;
 }
 
-.emp-row:hover,
-.emp-row:active {
+.a-row:hover,
+.a-row:active {
     border: 0.15rem deepskyblue solid;
     cursor: pointer;
 }

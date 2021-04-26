@@ -1,6 +1,5 @@
 import React, {Component} from "react"
-import '../../../App.css'
-import "./PrivilegeForm.css"
+import "../../style.css"
 import Input from "../../../components/UI/Input/Input";
 import Button from "../../../components/UI/Button/Button";
 import axios from "axios";
@@ -19,13 +18,6 @@ class PrivilegeAddForm extends Component {
                 },
                 value: ''
             },
-            // employee: {
-            //     elementType: 'select',
-            //     elementConfig: {
-            //         options: []
-            //     },
-            //     value: ''
-            // },
         }
     }
 

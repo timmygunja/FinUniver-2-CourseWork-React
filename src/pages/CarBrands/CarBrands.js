@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import CarBrandService from "../../components/services/CarBrandService";
 import Modal from "../../components/UI/Modal/Modal";
 import Aux from "../../hoc/Aux/Aux";
-import "./CarBrands.css"
+import "../style.css"
 import CarBrandAddForm from "./forms/CarBrandAddForm";
 import CarBrandEditForm from "./forms/CarBrandEditForm";
 import Spinner from "../../components/UI/Spinner/Spinner";
@@ -64,7 +64,7 @@ class CarBrands extends Component {
                 </Modal>
 
                 <div className="form-top">
-                    <h1 className="form-title">Employees Info</h1>
+                    <h1 className="form-title">Car Brands Info</h1>
                     <div className="buttons">
                         <button className="AddButton" onClick={this.addingHandler}>
                             <img alt="+" className="plus" src="/plus.png" />
@@ -85,7 +85,7 @@ class CarBrands extends Component {
                     {
                         this.state.carbrands.map(
                             carbrand =>
-                                <tr key={carbrand.id} className="carbrand-row" onClick={() => this.editingHandler(carbrand.id)}>
+                                <tr key={carbrand.id} className="a-row" onClick={() => this.editingHandler(carbrand.id)}>
                                     <td>{carbrand.id}</td>
                                     <td>{carbrand.name}</td>
                                     <td>{carbrand.description}</td>

@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import PositionService from "../../components/services/PositionService";
 import Modal from "../../components/UI/Modal/Modal";
 import Aux from "../../hoc/Aux/Aux";
-import "./Positions.css"
+import "../style.css"
 import PositionAddForm from "./forms/PositionAddForm";
 import PositionEditForm from "./forms/PositionEditForm";
 import Spinner from "../../components/UI/Spinner/Spinner";
@@ -78,7 +78,6 @@ class Positions extends Component {
                             <td>Name</td>
                             <td>Description</td>
                             <td>Salary</td>
-                            {/*<td>Employee</td>*/}
                         </tr>
                     </thead>
 
@@ -86,12 +85,11 @@ class Positions extends Component {
                     {
                         this.state.positions.map(
                             position =>
-                                <tr key={position.id} className="pos-row" onClick={() => this.editingHandler(position.id)}>
+                                <tr key={position.id} className="a-row" onClick={() => this.editingHandler(position.id)}>
                                     <td>{position.id}</td>
                                     <td>{position.name}</td>
                                     <td>{position.description}</td>
                                     <td>{position.salary}</td>
-                                    {/*<td>{position.employee}</td>*/}
                                 </tr>
                         )
                     }

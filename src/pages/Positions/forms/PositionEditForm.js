@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import '../../../App.css'
-import './PositionForm.css'
+import "../../style.css"
 import Input from "../../../components/UI/Input/Input";
 import Button from "../../../components/UI/Button/Button";
 import Spinner from "../../../components/UI/Spinner/Spinner";
@@ -37,14 +37,6 @@ class PositionEditForm extends Component {
                     },
                     value: this.props.position.salary
                 },
-                // employee: {
-                //     elementType: 'input',
-                //     elementConfig: {
-                //         type: 'text',
-                //         placeholder: 'Employee'
-                //     },
-                //     value: this.props.position.employee
-                // },
             }
         }
     }

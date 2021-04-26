@@ -4,13 +4,12 @@ import Employees from "./pages/Employees/Employees";
 import {Switch} from "react-router-dom";
 import {Route} from "react-router";
 import MainNavigation from "./components/layout/MainNavigation";
-import Home from "./pages/Home";
-import About from "./pages/About";
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
 import Positions from "./pages/Positions/Positions";
 import Privileges from "./pages/Privileges/Privileges";
 import CarBrands from "./pages/CarBrands/CarBrands";
-
-// import forms from "../components/Privileges/forms/forms"
+import CarModels from "./pages/CarModels/CarModels";
 
 
 class App extends Component {
@@ -27,7 +26,7 @@ class App extends Component {
                         <CarBrands />
                     </Route>
                     <Route exact path="/car-models">
-                        {/*<CarModels />*/}
+                        <CarModels />
                     </Route>
                     <Route exact path="/employees">
                         <Employees />

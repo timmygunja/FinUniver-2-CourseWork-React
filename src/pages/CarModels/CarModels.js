@@ -2,23 +2,23 @@ import React, {Component} from "react"
 import Modal from "../../components/UI/Modal/Modal";
 import Aux from "../../hoc/Aux/Aux";
 import "../style.css"
-import PrivilegeAddForm from "./forms/PrivilegeAddForm";
-import PrivilegeEditForm from "./forms/PrivilegeEditForm";
+import CarModelAddForm from "./forms/CarModelAddForm";
+import CarModelEditForm from "./forms/CarModelEditForm";
 import Spinner from "../../components/UI/Spinner/Spinner";
-import PrivilegeService from "../../components/services/PrivilegeService";
+import CarModelService from "../../components/services/CarModelService";
 
-class Privileges extends Component {
+class CarModels extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            privileges: []
+            carmodels: []
         }
     }
 
     state = {
         adding: false,
         editing: false,
-        privilegeId: null,
+        carmodelId: null,
     }
 
     addingHandler = () => {
@@ -31,7 +31,7 @@ class Privileges extends Component {
 
     editingHandler = (id) => {
         this.setState({
-            privilegeId: id,
+            carmodelId: id,
             editing: true
         })
     }
@@ -41,8 +41,8 @@ class Privileges extends Component {
     }
 
     componentDidMount() {
-        PrivilegeService.getPrivileges().then((response) => {
-            this.setState({privileges: response.data})
+        CarModelService.getCarModels().then((response) => {
+            this.setState({carmodels: response.data})
         })
     }
 
@@ -51,20 +51,20 @@ class Privileges extends Component {
         return (
             <Aux>
                 <Modal show={this.state.adding} modalClosed={this.addingCancelHandler}>
-                    <PrivilegeAddForm />
+                    <CarModelAddForm />
                 </Modal>
 
                 <Modal show={this.state.editing} modalClosed={this.editingCancelHandler}>
                     {
                         this.state.editing ?
-                            <PrivilegeEditForm privilege={this.state.privileges.filter(
-                                priv => {return priv.id === this.state.privilegeId})[0]} />
+                            <CarModelEditForm carmodel={this.state.carmodels.filter(
+                                carmodel => {return carmodel.id === this.state.carmodelId})[0]} />
                         : <Spinner />
                     }
                 </Modal>
 
                 <div className="form-top">
-                    <h1 className="form-title">Privileges Info</h1>
+                    <h1 className="form-title">Car Models Info</h1>
                     <div className="buttons">
                         <button className="AddButton" onClick={this.addingHandler}>
                             <img alt="+" className="plus" src="/plus.png" />
@@ -76,16 +76,20 @@ class Privileges extends Component {
                         <tr className="table-title-row">
                             <td>Id</td>
                             <td>Name</td>
+                            <td>Description</td>
+                            <td>Car brand</td>
                         </tr>
                     </thead>
 
                     <tbody>
                     {
-                        this.state.privileges.map(
-                            privilege =>
-                                <tr key={privilege.id} className="a-row" onClick={() => this.editingHandler(privilege.id)}>
-                                    <td>{privilege.id}</td>
-                                    <td>{privilege.name}</td>
+                        this.state.carmodels.map(
+                            carmodel =>
+                                <tr key={carmodel.id} className="a-row" onClick={() => this.editingHandler(carmodel.id)}>
+                                    <td>{carmodel.id}</td>
+                                    <td>{carmodel.name}</td>
+                                    <td>{carmodel.description}</td>
+                                    <td>{carmodel.carbrand.name}</td>
                                 </tr>
                         )
                     }
@@ -96,4 +100,4 @@ class Privileges extends Component {
     }
 }
 
-export default Privileges
+export default CarModels

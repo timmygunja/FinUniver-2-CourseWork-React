@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './Button.css';
-import '../../../pages/Employees/Employees.css'
 
 const Button = (props) => (
     <button

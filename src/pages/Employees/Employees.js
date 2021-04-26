@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import EmployeeService from "../../components/services/EmployeeService";
 import Modal from "../../components/UI/Modal/Modal";
 import Aux from "../../hoc/Aux/Aux";
-import "./Employees.css"
+import "../style.css"
 import EmployeeAddForm from "./forms/EmployeeAddForm";
 import EmployeeEditForm from "./forms/EmployeeEditForm";
 import Spinner from "../../components/UI/Spinner/Spinner";
@@ -88,7 +88,7 @@ class Employees extends Component {
                     {
                         this.state.employees.map(
                             employee =>
-                                <tr key={employee.id} className="emp-row" onClick={() => this.editingHandler(employee.id)}>
+                                <tr key={employee.id} className="a-row" onClick={() => this.editingHandler(employee.id)}>
                                     <td>{employee.id}</td>
                                     <td>{employee.name}</td>
                                     <td>{employee.surname}</td>

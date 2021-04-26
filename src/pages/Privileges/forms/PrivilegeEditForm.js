@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import '../../../App.css'
-import './PrivilegeForm.css'
+import "../../style.css"
 import Input from "../../../components/UI/Input/Input";
 import Button from "../../../components/UI/Button/Button";
 import Spinner from "../../../components/UI/Spinner/Spinner";
@@ -21,14 +21,6 @@ class PrivilegeEditForm extends Component {
                     },
                     value: this.props.privilege.name
                 },
-                // employee: {
-                //     elementType: 'input',
-                //     elementConfig: {
-                //         type: 'text',
-                //         placeholder: 'Employee'
-                //     },
-                //     value: this.props.privileges.employee
-                // },
             }
         }
     }

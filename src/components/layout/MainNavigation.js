@@ -13,6 +13,8 @@ function MainNavigation() {
                 <li className={classes.dropdown}>
                     <a href="#">Handbooks</a>
                     <ul className={classes.drop}>
+                        <li><Link to='/car-brands'>Car Brands</Link></li>
+                        <li><Link to='/car-models'>Car Models</Link></li>
                         <li><Link to='/employees'>Employees</Link></li>
                         <li><Link to='/positions'>Positions</Link></li>
                         <li><Link to='/privileges'>Privileges</Link></li>

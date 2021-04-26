@@ -8,36 +8,12 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Positions from "./pages/Positions/Positions";
 import Privileges from "./pages/Privileges/Privileges";
+import CarBrands from "./pages/CarBrands/CarBrands";
 
 // import forms from "../components/Privileges/forms/forms"
 
 
 class App extends Component {
-
-    // usernameChangedHandler = (e) => {
-    //     this.setState({username: e.target.value})
-    // }
-
-    changeNameHandler = (event, id) => {
-        const employeeIndex = this.state.workers.findIndex(w => {return w.id === id})
-
-        const employee = {
-            ...this.state.employees[employeeIndex]
-        }
-
-        employee.name = event.target.value
-
-        const employees = [...this.state.employees]
-        employees[employeeIndex] = employee
-
-        this.setState({employees: employees})
-    }
-
-    deleteWorkerHandler = (employeeIndex) => {
-        const employees = [...this.state.employees]
-        employees.splice(employeeIndex,1)
-        this.setState({employees: employees})
-    }
 
     render() {
         return (
@@ -46,6 +22,12 @@ class App extends Component {
                 <Switch>
                     <Route exact path="/">
                         <Home />
+                    </Route>
+                    <Route exact path="/car-brands">
+                        <CarBrands />
+                    </Route>
+                    <Route exact path="/car-models">
+                        {/*<CarModels />*/}
                     </Route>
                     <Route exact path="/employees">
                         <Employees />
@@ -60,18 +42,6 @@ class App extends Component {
                         <About />
                     </Route>
                 </Switch>
-
-                {/*<div>*/}
-                    {/*<header className="header">*/}
-                    {/*    <nav>*/}
-                    {/*        <ul>*/}
-                    {/*            <li><Link to="/">Home</Link></li>*/}
-                    {/*            <li><Link to="/employees">Privileges</Link></li>*/}
-                    {/*        </ul>*/}
-                    {/*    </nav>*/}
-                    {/*</header>*/}
-                    {/*<hr />*/}
-                {/*</div>*/}
             </div>
         );
     }

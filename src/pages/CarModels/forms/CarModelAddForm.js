@@ -53,9 +53,9 @@ class CarModelAddForm extends Component {
                                 },
                             )
                         },
-                        value: '1'
+                        value: 1
                     }
-                }
+                },
             }));
         })
     }
@@ -79,8 +79,7 @@ class CarModelAddForm extends Component {
                 this.setState( { loading: false } );
             } );
 
-        // eslint-disable-next-line no-restricted-globals
-        location.reload()
+        window.location.reload()
     }
 
     inputChangedHandler = (event, inputIdentifier) => {

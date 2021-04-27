@@ -78,8 +78,7 @@ class CarModelEditForm extends Component {
                 this.setState( { loading: false } );
             } );
 
-        // eslint-disable-next-line no-restricted-globals
-        location.reload()
+        window.location.reload()
     }
 
     deleteHandler = ( event ) => {
@@ -98,8 +97,7 @@ class CarModelEditForm extends Component {
                 this.setState( { loading: false } );
             } );
 
-        // eslint-disable-next-line no-restricted-globals
-        location.reload()
+        window.location.reload()
     }
 
     inputChangedHandler = (event, inputIdentifier) => {

@@ -5,7 +5,7 @@ import "../style.css"
 import CarModelAddForm from "./forms/CarModelAddForm";
 import CarModelEditForm from "./forms/CarModelEditForm";
 import Spinner from "../../components/UI/Spinner/Spinner";
-import CarModelService from "../../components/services/CarService";
+import CarModelService from "../../components/services/CarModelService";
 
 class CarModels extends Component {
     constructor(props) {

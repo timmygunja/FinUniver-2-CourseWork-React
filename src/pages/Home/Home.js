@@ -1,5 +1,6 @@
 import React from "react";
 import Graph from "../../components/UI/graph/Graph";
+import Orders from "../Orders/Orders";
 
 function Home() {
     return <div>
@@ -9,6 +10,7 @@ function Home() {
         <hr />
         <Graph />
         <hr />
+        <Orders />
     </div>
 }
 

@@ -4,15 +4,15 @@ import Input from "../../../components/UI/Input/Input";
 import Button from "../../../components/UI/Button/Button";
 import axios from "axios";
 import Spinner from "../../../components/UI/Spinner/Spinner";
-import CarService from "../../../components/services/CarService";
 import CustomerService from "../../../components/services/CustomerService";
+import CarModelService from "../../../components/services/CarModelService";
 
 
 class CarAddForm extends Component {
     state = {
         loading: false,
         addForm: {
-            plate: {
+            plateNumber: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -44,7 +44,7 @@ class CarAddForm extends Component {
     }
 
     componentDidMount() {
-        CarService.getCars().then((response) => {
+        CarModelService.getCarModels().then((response) => {
             this.setState((prevState, props) => ({
                 addForm: {
                     ...prevState.addForm,

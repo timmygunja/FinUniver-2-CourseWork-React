@@ -1,5 +1,4 @@
 import React, {Component} from "react"
-import EmployeeService from "../../components/services/EmployeeService";
 import Modal from "../../components/UI/Modal/Modal";
 import Aux from "../../hoc/Aux/Aux";
 import "../style.css"
@@ -89,10 +88,10 @@ class Orders extends Component {
                             order =>
                                 <tr key={order.id} className="a-row" onClick={() => this.editingHandler(order.id)}>
                                     <td>{order.id}</td>
-                                    <td>{order.car.carmodel.name} {order.car.carbrand.name}</td>
-                                    <td>{order.employee.surname}</td>
+                                    <td>{order.car.carmodel.carbrand.name} {order.car.carmodel.name}</td>
+                                    <td>{order.employee.name} {order.employee.surname}</td>
                                     <td>{order.services.name}</td>
-                                    <td>{order.isdone}</td>
+                                    <td>{order.isDone}</td>
                                 </tr>
                         )
                     }

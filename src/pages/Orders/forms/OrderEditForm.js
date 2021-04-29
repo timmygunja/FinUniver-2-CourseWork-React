@@ -15,61 +15,82 @@ class OrderEditForm extends Component {
         this.state = {
             loading: false,
             addForm: {
-                isdone: {
+                isDone: {
                     elementType: 'input',
                     elementConfig: {
                         type: 'text',
                         placeholder: 'Job is done'
                     },
-                    value: this.props.order.isdone
+                    value: this.props.order.isDone
                 },
             }
         }
     }
 
-    // componentDidMount() {
-    //     PositionService.getPositions().then((response) => {
-    //         this.setState((prevState, props) => ({
-    //             addForm: {
-    //                 ...prevState.addForm,
-    //                 position: {
-    //                     elementType: 'select',
-    //                     elementConfig: {
-    //                         options: response.data.map(
-    //                             position => {
-    //                                 position['value']=position.id;
-    //                                 position['displayValue']=position.name;
-    //                                 return position},
-    //                         )
-    //                     },
-    //                     value: this.props.employee.position.id,
-    //                     displayValue: this.props.employee.position.name
-    //                 }
-    //             }
-    //         }));
-    //     })
-    //
-    //     PrivilegeService.getPrivileges().then((response) => {
-    //         this.setState((prevState, props) => ({
-    //             addForm: {
-    //                 ...prevState.addForm,
-    //                 privilege: {
-    //                     elementType: 'select',
-    //                     elementConfig: {
-    //                         options: response.data.map(
-    //                             privilege => {
-    //                                 privilege['value']=privilege.id;
-    //                                 privilege['displayValue']=privilege.name;
-    //                                 return privilege},
-    //                         )
-    //                     },
-    //                     value: this.props.employee.privilege.id,
-    //                     displayValue: this.props.employee.privilege.name
-    //                 }
-    //             }
-    //         }));
-    //     })
-    // }
+    componentDidMount() {
+        CarService.getCars().then((response) => {
+            this.setState((prevState, props) => ({
+                addForm: {
+                    ...prevState.addForm,
+                    car: {
+                        elementType: 'select',
+                        elementConfig: {
+                            options: response.data.map(
+                                car => {
+                                    car['value']=car.id;
+                                    car['displayValue']=car.plateNumber;
+                                    return car},
+                            )
+                        },
+                        value: this.props.order.car.id,
+                        displayValue: this.props.order.car.plateNumber
+                    }
+                }
+            }));
+        })
+
+        EmployeeService.getEmployees().then((response) => {
+            this.setState((prevState, props) => ({
+                addForm: {
+                    ...prevState.addForm,
+                    employee: {
+                        elementType: 'select',
+                        elementConfig: {
+                            options: response.data.map(
+                                employee => {
+                                    employee['value']=employee.id;
+                                    employee['displayValue']=employee.name;
+                                    return employee},
+                            )
+                        },
+                        value: this.props.order.employee.id,
+                        displayValue: this.props.order.employee.name
+                    }
+                }
+            }));
+        })
+
+        ServicesService.getServices().then((response) => {
+            this.setState((prevState, props) => ({
+                addForm: {
+                    ...prevState.addForm,
+                    services: {
+                        elementType: 'select',
+                        elementConfig: {
+                            options: response.data.map(
+                                services => {
+                                    services['value']=services.id;
+                                    services['displayValue']=services.name;
+                                    return services},
+                            )
+                        },
+                        value: this.props.order.services.id,
+                        displayValue: this.props.order.services.name
+                    }
+                }
+            }));
+        })
+    }
 
     updateHandler = ( event ) => {
         event.preventDefault();
@@ -80,8 +101,9 @@ class OrderEditForm extends Component {
             formData[formElementIdentifier] = this.state.addForm[formElementIdentifier].value;
         }
 
-        // formData["position"] = {id: this.state.addForm.position.value}
-        // formData["privilege"] = {id: this.state.addForm.privilege.value}
+        formData["car"] = {id: this.state.addForm.car.value}
+        formData["employee"] = {id: this.state.addForm.employee.value}
+        formData["services"] = {id: this.state.addForm.services.value}
 
         axios.put( 'http://localhost:8080/api/orders', formData)
             .then( response => {

@@ -18,7 +18,7 @@ class Cars extends Component {
     state = {
         adding: false,
         editing: false,
-        carsId: null,
+        carId: null,
     }
 
     addingHandler = () => {
@@ -31,7 +31,7 @@ class Cars extends Component {
 
     editingHandler = (id) => {
         this.setState({
-            carsId: id,
+            carId: id,
             editing: true
         })
     }
@@ -58,7 +58,7 @@ class Cars extends Component {
                     {
                         this.state.editing ?
                             <CarEditForm car={this.state.cars.filter(
-                                car => {return car.id === this.state.carsId})[0]} />
+                                car => {return car.id === this.state.carId})[0]} />
                         : <Spinner />
                     }
                 </Modal>
@@ -88,10 +88,10 @@ class Cars extends Component {
                             car =>
                                 <tr key={car.id} className="a-row" onClick={() => this.editingHandler(car.id)}>
                                     <td>{car.id}</td>
-                                    <td>{car.plate}</td>
+                                    <td>{car.plateNumber}</td>
                                     <td>{car.description}</td>
-                                    <td>{car.carmodel.name}</td>
-                                    <td>{car.customer.name}</td>
+                                    <td>{car.carmodel.carbrand.name} {car.carmodel.name}</td>
+                                    <td>{car.customer.name} {car.customer.surname}</td>
                                 </tr>
                         )
                     }

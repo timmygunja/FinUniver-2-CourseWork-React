@@ -15,13 +15,13 @@ class CarEditForm extends Component {
         this.state = {
             loading: false,
             addForm: {
-                plate: {
+                plateNumber: {
                     elementType: 'input',
                     elementConfig: {
                         type: 'text',
                         placeholder: 'Plate number'
                     },
-                    value: this.props.car.plate
+                    value: this.props.car.plateNumber
                 },
                 description: {
                     elementType: 'input',

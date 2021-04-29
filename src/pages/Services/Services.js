@@ -88,11 +88,8 @@ class Services extends Component {
                                 <tr key={service.id} className="a-row" onClick={() => this.editingHandler(service.id)}>
                                     <td>{service.id}</td>
                                     <td>{service.name}</td>
-                                    <td>{service.surname}</td>
-                                    <td>{service.contact}</td>
-                                    <td>{service.login}</td>
-                                    <td>{service.position.name}</td>
-                                    <td>{service.privilege.name}</td>
+                                    <td>{service.description}</td>
+                                    <td>{service.cost}</td>
                                 </tr>
                         )
                     }

@@ -13,7 +13,7 @@ class OrderAddForm extends Component {
     state = {
         loading: false,
         addForm: {
-            isdone: {
+            isDone: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
@@ -53,7 +53,7 @@ class OrderAddForm extends Component {
                             options: response.data.map(
                                     car => {
                                         car['value']=car.id;
-                                        car['displayValue']=car.name;
+                                        car['displayValue']=car.plateNumber;
                                         return car},
                                 )
                         },

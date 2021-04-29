@@ -2,23 +2,23 @@ import React, {Component} from "react"
 import Modal from "../../components/UI/Modal/Modal";
 import Aux from "../../hoc/Aux/Aux";
 import "../style.css"
-import CarModelAddForm from "./forms/CarModelAddForm";
-import CarModelEditForm from "./forms/CarModelEditForm";
+import CarAddForm from "./forms/CarAddForm";
+import CarEditForm from "./forms/CarEditForm";
 import Spinner from "../../components/UI/Spinner/Spinner";
-import CarModelService from "../../components/services/CarService";
+import CarService from "../../components/services/CarService";
 
-class CarModels extends Component {
+class Cars extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            carmodels: []
+            cars: []
         }
     }
 
     state = {
         adding: false,
         editing: false,
-        carmodelId: null,
+        carsId: null,
     }
 
     addingHandler = () => {
@@ -31,7 +31,7 @@ class CarModels extends Component {
 
     editingHandler = (id) => {
         this.setState({
-            carmodelId: id,
+            carsId: id,
             editing: true
         })
     }
@@ -41,8 +41,8 @@ class CarModels extends Component {
     }
 
     componentDidMount() {
-        CarModelService.getCarModels().then((response) => {
-            this.setState({carmodels: response.data})
+        CarService.getCars().then((response) => {
+            this.setState({cars: response.data})
         })
     }
 
@@ -51,20 +51,20 @@ class CarModels extends Component {
         return (
             <Aux>
                 <Modal show={this.state.adding} modalClosed={this.addingCancelHandler}>
-                    <CarModelAddForm />
+                    <CarAddForm />
                 </Modal>
 
                 <Modal show={this.state.editing} modalClosed={this.editingCancelHandler}>
                     {
                         this.state.editing ?
-                            <CarModelEditForm carmodel={this.state.carmodels.filter(
-                                carmodel => {return carmodel.id === this.state.carmodelId})[0]} />
+                            <CarEditForm car={this.state.cars.filter(
+                                car => {return car.id === this.state.carsId})[0]} />
                         : <Spinner />
                     }
                 </Modal>
 
                 <div className="form-top">
-                    <h1 className="form-title">Car Models Info</h1>
+                    <h1 className="form-title">Cars Info</h1>
                     <div className="buttons">
                         <button className="AddButton" onClick={this.addingHandler}>
                             <img alt="+" className="plus" src="/plus.png" />
@@ -75,21 +75,23 @@ class CarModels extends Component {
                     <thead>
                         <tr className="table-title-row">
                             <td>Id</td>
-                            <td>Name</td>
+                            <td>Plate</td>
                             <td>Description</td>
-                            <td>Car brand</td>
+                            <td>Model</td>
+                            <td>Customer</td>
                         </tr>
                     </thead>
 
                     <tbody>
                     {
-                        this.state.carmodels.map(
-                            carmodel =>
-                                <tr key={carmodel.id} className="a-row" onClick={() => this.editingHandler(carmodel.id)}>
-                                    <td>{carmodel.id}</td>
-                                    <td>{carmodel.name}</td>
-                                    <td>{carmodel.description}</td>
-                                    <td>{carmodel.carbrand.name}</td>
+                        this.state.cars.map(
+                            car =>
+                                <tr key={car.id} className="a-row" onClick={() => this.editingHandler(car.id)}>
+                                    <td>{car.id}</td>
+                                    <td>{car.plate}</td>
+                                    <td>{car.description}</td>
+                                    <td>{car.carmodel.name}</td>
+                                    <td>{car.customer.name}</td>
                                 </tr>
                         )
                     }
@@ -100,4 +102,4 @@ class CarModels extends Component {
     }
 }
 
-export default CarModels
+export default Cars

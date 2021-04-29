@@ -14,6 +14,7 @@ function MainNavigation() {
                     <a href="#">Handbooks</a>
                     <ul className={classes.drop}>
                         <li><Link to='/customers'>Customers</Link></li>
+                        <li><Link to='/cars'>Cars</Link></li>
                         <li><Link to='/services'>Services</Link></li>
                         <li><Link to='/car-brands'>Car Brands</Link></li>
                         <li><Link to='/car-models'>Car Models</Link></li>

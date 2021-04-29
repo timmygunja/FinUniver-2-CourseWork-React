@@ -12,6 +12,7 @@ import CarBrands from "./pages/CarBrands/CarBrands";
 import CarModels from "./pages/CarModels/CarModels";
 import Auth from "./containers/Auth/Auth";
 import Customers from "./pages/Customers/Customers";
+import Services from "./pages/Services/Services";
 
 
 class App extends Component {
@@ -29,6 +30,9 @@ class App extends Component {
                     </Route>
                     <Route exact path="/car-brands">
                         <CarBrands />
+                    </Route>
+                    <Route exact path="/services">
+                        <Services />
                     </Route>
                     <Route exact path="/customers">
                         <Customers />

@@ -27,7 +27,7 @@
     font-size: 16px;
     box-shadow: 2px 2px 2px gray;
     padding: 10px 17px;
-    width: 85px;
+    width: 92px;
     margin: 10px;
 }
 
@@ -62,7 +62,7 @@
 
 .Danger {
     /*grid-area: dltBtn;*/
-    width: 85px;
+    width: 92px;
     background-color: ghostwhite;
     outline: none;
     cursor: pointer;

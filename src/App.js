@@ -10,6 +10,8 @@ import Positions from "./pages/Positions/Positions";
 import Privileges from "./pages/Privileges/Privileges";
 import CarBrands from "./pages/CarBrands/CarBrands";
 import CarModels from "./pages/CarModels/CarModels";
+import Auth from "./containers/Auth/Auth";
+import Customers from "./pages/Customers/Customers";
 
 
 class App extends Component {
@@ -19,11 +21,17 @@ class App extends Component {
             <div>
                 <MainNavigation />
                 <Switch>
+                    <Route exact path="/auth">
+                        <Auth />
+                    </Route>
                     <Route exact path="/">
                         <Home />
                     </Route>
                     <Route exact path="/car-brands">
                         <CarBrands />
+                    </Route>
+                    <Route exact path="/customers">
+                        <Customers />
                     </Route>
                     <Route exact path="/car-models">
                         <CarModels />

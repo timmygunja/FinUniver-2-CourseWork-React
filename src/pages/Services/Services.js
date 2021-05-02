@@ -64,7 +64,7 @@ class Services extends Component {
                 </Modal>
 
                 <div className="form-top">
-                    <h1 className="form-title">Employees Info</h1>
+                    <h1 className="form-title">Services Info</h1>
                     <div className="buttons">
                         <button className="AddButton" onClick={this.addingHandler}>
                             <img alt="+" className="plus" src="/plus.png" />
@@ -89,7 +89,7 @@ class Services extends Component {
                                     <td>{service.id}</td>
                                     <td>{service.name}</td>
                                     <td>{service.description}</td>
-                                    <td>{service.cost}</td>
+                                    <td>{service.cost} ₽</td>
                                 </tr>
                         )
                     }

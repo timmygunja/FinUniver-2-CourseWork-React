@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import './App.css'
 import Employees from "./pages/Employees/Employees";
 import {Switch} from "react-router-dom";
 import {Route} from "react-router";
@@ -10,7 +9,6 @@ import Positions from "./pages/Positions/Positions";
 import Privileges from "./pages/Privileges/Privileges";
 import CarBrands from "./pages/CarBrands/CarBrands";
 import CarModels from "./pages/CarModels/CarModels";
-import Auth from "./containers/Auth/Auth";
 import Customers from "./pages/Customers/Customers";
 import Services from "./pages/Services/Services";
 import Cars from "./pages/Car/Cars";
@@ -24,9 +22,6 @@ class App extends Component {
             <div>
                 <MainNavigation />
                 <Switch>
-                    <Route exact path="/auth">
-                        <Auth />
-                    </Route>
                     <Route exact path="/">
                         <Home />
                     </Route>

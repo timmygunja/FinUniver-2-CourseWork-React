@@ -76,6 +76,7 @@ class Orders extends Component {
                         <tr className="table-title-row">
                             <td>Id</td>
                             <td>Car</td>
+                            <td>Plate</td>
                             <td>Employee</td>
                             <td>Service</td>
                             <td>Is Done</td>
@@ -89,6 +90,7 @@ class Orders extends Component {
                                 <tr key={order.id} className="a-row" onClick={() => this.editingHandler(order.id)}>
                                     <td>{order.id}</td>
                                     <td>{order.car.carmodel.carbrand.name} {order.car.carmodel.name}</td>
+                                    <td>{order.car.plateNumber}</td>
                                     <td>{order.employee.name} {order.employee.surname}</td>
                                     <td>{order.services.name}</td>
                                     <td>{order.isDone}</td>

@@ -1,5 +1,5 @@
 import React from "react";
-import Graph from "../../components/UI/graph/Graph";
+import Graph from "../../components/UI/Graph/Graph";
 import Orders from "../Orders/Orders";
 
 function Home() {

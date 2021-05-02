@@ -89,7 +89,7 @@ class Positions extends Component {
                                     <td>{position.id}</td>
                                     <td>{position.name}</td>
                                     <td>{position.description}</td>
-                                    <td>{position.salary}</td>
+                                    <td>{position.salary} ₽</td>
                                 </tr>
                         )
                     }
